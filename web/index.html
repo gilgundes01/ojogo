@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Jogo - HTML</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #gameText {
+        font-size: 80px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 5px 5px 0px gray;
+        transform-origin: center;
+    }
+
+    #instruction {
+        font-size: 30px;
+        position: absolute;
+        bottom: 30px; /* Texto no rodapé */
+        text-align: center;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div id="gameText">O Jogo</div>
+<div id="instruction">Aperte F4 para ficar em tela cheia</div>
+
+<script>
+    const text = document.getElementById('gameText');
+    let angle = 0;
+
+    function rotateText() {
+        angle += 1;
+        if (angle >= 360) angle = 0;
+        text.style.transform = `rotate(${angle}deg)`;
+        requestAnimationFrame(rotateText);
+    }
+
+    rotateText();
+
+    // F4 para fullscreen
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "F4") {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
