@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Jogo - O mais inútil do mundo</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #111;
+        box-shadow: 0 0 20px #222;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    header h1 {
+        font-family: Arial, sans-serif;
+        font-size: 28px;
+        color: #fff;
+        text-shadow: 2px 2px 5px #555;
+        animation: spinText 10s linear infinite;
+    }
+
+    @keyframes spinText {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 20px;
+        transition: 0.3s;
+    }
+
+    header a:hover {
+        color: #0f0;
+        text-shadow: 0 0 10px #0f0;
+    }
+
+    h1.main-title {
+        font-size: 90px;
+        margin-top: 20px;
+        text-shadow: 5px 5px 10px #555;
+        animation: girar 5s linear infinite;
+        perspective: 500px;
+    }
+
+    @keyframes girar {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
+
+    section {
+        padding: 50px 20px;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadein 1s forwards;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+
+    @keyframes fadein {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .downloads a {
+        display: inline-block;
+        background: linear-gradient(45deg,#111,#333);
+        color: #0f0;
+        text-decoration: none;
+        padding: 15px 35px;
+        margin: 15px;
+        border-radius: 12px;
+        font-size: 18px;
+        box-shadow: 0 0 15px #0f0;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* --- EM DESENVOLVIMENTO (sombra vermelha) --- */
+    .downloads a.soon {
+        color: #f00;
+        box-shadow: 0 0 15px #f00;
+    }
+
+    .downloads a.soon:hover {
+        color: #fff;
+        box-shadow: 0 0 25px #f00;
+        transform: scale(1.05);
+    }
+
+    .downloads a:hover {
+        color: #fff;
+        box-shadow: 0 0 30px #0f0;
+        transform: scale(1.05);
+    }
+
+    .info {
+        margin-top: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .donate a {
+        color: #0f0;
+        text-decoration: underline;
+    }
+
+    iframe {
+        margin-top: 30px;
+        width: 90%;
+        max-width: 900px;
+        height: 500px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 30px #0f0;
+        transition: 0.3s;
+    }
+
+    iframe:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 50px #0f0;
+    }
+
+    .ads {
+        background-color: #111;
+        border: 2px solid #0f0;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        box-shadow: 0 0 20px #0f0;
+        font-size: 16px;
+        color: #0f0;
+        transition: 0.3s;
+    }
+
+    .ads:hover {
+        box-shadow: 0 0 40px #0f0;
+        transform: scale(1.01);
+    }
+
+    footer {
+        padding: 20px;
+        background-color: #111;
+        font-size: 14px;
+        box-shadow: 0 0 20px #222;
+        color: #aaa;
+        text-shadow: 0 0 5px #111;
+    }
+
+    @media (max-width: 768px) {
+        header h1 { font-size: 22px; }
+        h1.main-title { font-size: clamp(40px, 12vw, 80px); }
+        .downloads a { padding: 12px 25px; font-size: 16px; }
+        .info { font-size: 14px; }
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>O Jogo</h1>
+    <a href="https://discord.gg/seulink" target="_blank">Discord</a>
+</header>
+
+<h1 class="main-title">O Jogo</h1>
+
+<section class="description">
+    <h2>Descrição</h2>
+    <p class="info">O Jogo é o mais inútil do mundo. Apenas texto girando, fundo preto e diversão infinita de inutilidade. Agora ele inicia automaticamente em tela cheia!</p>
+    <p class="info"><strong>Versão atual:</strong> V0.1 [BETA] [DEMO]</p>
+</section>
+
+<section class="downloads">
+    <h2>Downloads</h2>
+    <a href="https://4br.me/FlYawnz" download onclick="playSound()">Windows (.exe)</a>
+    <a href="#" class="soon" onclick="playSound()">macOS (.app) — Em breve</a>
+    <a href="downloads/OJogo.apk" download onclick="playSound()">Android (.apk)</a>
+    <a href="#" class="soon" onclick="playSound()">iOS (.ipa) — Em breve</a>
+</section>
+
+<section class="donate">
+    <h2>Doações</h2>
+    <p class="info">Apoie a inutilidade suprema e nos ajude a manter o servidor online 😆<br>
+    Doe via <a href="https://www.paypal.com/donate/link" target="_blank">PayPal</a>.</p>
+</section>
+
+<section class="play-online">
+    <h2>Play Online</h2>
+    <iframe src="web/index.html"></iframe>
+</section>
+
+<section class="ads">
+    💰 <strong>Espaço reservado para anúncios</strong> 💰 <br><br>
+    Aqui você pode colocar código do <strong>Google AdSense</strong>, <strong>Adsterra</strong> ou qualquer rede de anúncios.
+</section>
+
+<footer>
+    &copy; 2025 O Jogo. Todos os direitos à inutilidade reservados. <br>
+    Versão de desenvolvimento: <span style="color:#f00;">Em atualização</span>
+</footer>
+
+<audio id="clickSound" src="click.mp3"></audio>
+<script>
+    function playSound() {
+        document.getElementById('clickSound').play();
+    }
+</script>
+
+</body>
+</html>
